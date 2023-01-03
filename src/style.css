@@ -1,49 +1,47 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.center{
+.center {
   text-align: center;
   padding: 20px;
 }
 
-.recent{
+.recent {
   display: flex;
   gap: 20px;
   padding: 20px;
 }
 
-form{
+form {
   position: absolute;
-  
   right: 20%;
 }
-.scores{
+
+.scores {
   background-color: blanchedalmond;
   width: 20%;
   margin: 10px;
 }
+
 .scores ul li {
   list-style: none;
 }
 
-input{
+input {
   display: block;
-  margin: 0px 0px 9px;
- 
-  
+  margin: 0 0 9px;
 }
 
-button{
+button {
   background-color: bisque;
   border: none;
   padding: 10px;
   border-radius: 10px;
 }
 
-button:hover{
+button:hover {
   background-color: blanchedalmond;
 }
-

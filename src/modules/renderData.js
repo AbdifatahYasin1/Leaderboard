@@ -5,7 +5,10 @@ export const renderScore = (allusers) => {
   const allUsers = (allusers.result);
   let items = '';
   allUsers.forEach((allUsers) => {
-    items += `<li class="listItem">${allUsers.user}:<span> ${allUsers.score}</span></li>`;
+    items += `
+
+    
+    <li class="listItem">${allUsers.user}:<span> ${allUsers.score}</span></li> <hr>`;
     scoredisplay.innerHTML = items;
   });
 };

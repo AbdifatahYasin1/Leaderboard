@@ -1,47 +1,45 @@
 import './style.css';
+import { renderScore } from './modules/renderData';
 
-const scores = [
-  {
-    name: 'Abdifah',
-    score: 20,
-  },
-  {
-    name: 'Cabdiqani',
-    score: 22,
-  },
-  {
-    name: 'Sahra',
-    score: 33,
-  },
-  {
-    name: 'ismaaciil',
-    score: 90,
-  },
-  {
-    name: 'Hana',
-    score: 99,
-  },
-  {
-    name: 'Yaasiin',
-    score: 33,
-  },
+const username = document.querySelector('.name');
+const userscore = document.querySelector('.score');
+const refresh = document.querySelector('.refresh');
 
-];
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/w28XV0XABslGGmmHyseU/scores/';
 
-const element = document.createElement('li');
+const getData = async () => {
+  const response = await fetch(url);
+  const data = await response.json();
 
-const render = () => {
-  scores.forEach((item, index) => {
-    element.innerHTML += `
-      <li class='litem ${index % 2 !== 0 ? 'item' : 'item1'}' >
-    <label class='lname'> ${item.name} : </label> 
-    <label class='lscore'> ${item.score} </label>
-  </li>
-      
-      `;
-  });
+  renderScore(data);
 };
-window.onload = () => {
-  render();
-  document.querySelector('#score').appendChild(element);
+
+refresh.addEventListener('click', getData);
+
+// data to be submitted
+
+const submitData = async () => {
+  const dataInfo = {
+    user: username.value,
+    score: userscore.value,
+  };
+
+  const dataFormart = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dataInfo),
+  };
+  const response = fetch(url, dataFormart);
+  const data = await (await response).json();
+  username.value = '';
+  userscore.value = '';
+  return data;
 };
+
+const gameForm = document.querySelector('.formcontent');
+gameForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  submitData();
+});

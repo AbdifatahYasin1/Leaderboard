@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+<script defer src="build/runtime.js"></script><script defer src="build/main.js"></script></head>
+<body>
+    
+    <h1 class="center">LeaderBoard</h1>
+    
+<div class="container">
+    <div class="recent">
+        <h2>Recent Scores</h2>
+        <button type="button" onclick=" render()"
+        class="refresh">Refresh</button>
+    </div>
+    <div class="scores">
+        <ul id="score"></ul>
+        
+    </div>
+
+  
+    <form action="">
+        <h3>Add your score</h3>
+        <input type="text" placeholder="name">
+       
+        <input type="text" placeholder="score">
+        
+        <button>Submit</button>
+    </form>
+</div>  
+<script src="./main.js" type="module"></script>
+</body>
+</html>
